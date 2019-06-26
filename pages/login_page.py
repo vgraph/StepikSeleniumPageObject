@@ -32,3 +32,4 @@ class LoginPage(BasePage):
             "Register input password is not presented")
         assert self.is_element_present(*LoginPageLocators.REGISTER_BUTTON_REGISTER), (
             "Register button is not presented")
+
