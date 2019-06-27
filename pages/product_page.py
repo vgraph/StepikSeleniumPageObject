@@ -13,15 +13,13 @@ class ProductPage(BasePage):
         # Сначала проверяем, что элементы присутствуют на странице
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME), (
             "Product name is not presented")
-        assert self.is_element_present(*ProductPageLocators.MESSAGE_ABOUT_ADDING), (
+        assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE), (
             "Message about adding is not presented")
         # Затем получаем текст элементов для проверки
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
-        message = self.browser.find_element(*ProductPageLocators.MESSAGE_ABOUT_ADDING).text
-        # Проверяем, что название товара присутствует в сообщении о добавлении
-        # Это можно было бы сделать с помощью split() и сравнения строк,
-        # Но не вижу необходимости усложнять код
-        assert product_name in message, "No product name in the message"
+        product_name_in_message = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE).text
+        # Проверяем, что название товара в сообщении == названию товара на странице
+        assert product_name == product_name_in_message, "Product name does not match the message"
 
     def should_be_message_basket_total(self):
         # Сначала проверяем, что элементы присутствуют на странице
