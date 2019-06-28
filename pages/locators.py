@@ -27,3 +27,13 @@ class ProductPageLocators(object):
 class BasePageLocators(object):
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".basket-mini a")
+    BASKET_BUTTON_INVALID = (By.CSS_SELECTOR, ".basket-mini_inc")
+
+
+class CartPageLocators(object):
+    BASKET_PRODUCT_NAME = (By.CSS_SELECTOR, ".basket-items h3")
+
+    # Плохой локатор, но другого нет. Если корзина не пуста,
+    # то по этому локатору будут находится другие тексты, относящиеся к товару в корзине
+    BASKET_EMPTY_TEXT = (By.CSS_SELECTOR, "#content_inner p")

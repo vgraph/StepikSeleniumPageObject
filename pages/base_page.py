@@ -76,10 +76,25 @@ class BasePage(object):
         return True
 
     def go_to_login_page(self):
+        # локатор для проверки падения теста
         # link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), (
             "Login link is not presented")
+
+    def go_to_basket_page(self):
+        """Метод для перехода в корзину
+        """
+        link = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        link.click()
+
+    def should_be_basket_button(self):
+        """Метод проверяет, есть ли кнопка перехода в корзину
+        """
+        assert self.is_element_present(*BasePageLocators.BASKET_BUTTON_INVALID), (
+            "Basket button is not presented"
+        )
