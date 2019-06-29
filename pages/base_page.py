@@ -98,3 +98,8 @@ class BasePage(object):
         assert self.is_element_present(*BasePageLocators.BASKET_BUTTON_INVALID), (
             "Basket button is not presented"
         )
+
+    def should_be_authorized_user(self):
+        """Метод проверяет, что пользователь залогинен"""
+        assert self.is_element_present(*BasePageLocators.USER_ICON), (
+            "User icon is not presented, probably unauthorised user")
