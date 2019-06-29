@@ -1,13 +1,8 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
-import time
 
 
 class LoginPage(BasePage):
-    # def __init__(self, *args, **kwargs):
-    #     super(LoginPage, self).__init__(*args, **kwargs)
-    #     self.email = str(time.time()) + "@fakemail.org"
-    #     self.password = "123456"
 
     def should_be_login_page(self):
         self.should_be_login_url()
@@ -44,4 +39,3 @@ class LoginPage(BasePage):
         self.browser.find_element(*LoginPageLocators.REGISTER_INPUT_PASSWORD).send_keys(password)
         self.browser.find_element(*LoginPageLocators.REGISTER_INPUT_PASSWORD_CONFIRM).send_keys(password)
         self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON_REGISTER).click()
-        # assert self.should_be_authorized_user()

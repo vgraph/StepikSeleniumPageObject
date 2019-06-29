@@ -9,15 +9,13 @@ import math
 
 class BasePage(object):
 
-    # TODO: Расставить методы в алфавитном порядке
-    def __init__(self, browser, url, timeout=10):
+    def __init__(self, browser, url):
         """Конструктор класса.
         :param WebDriver browser: The browser's driver
         :param url:
         """
         self.browser = browser
         self.url = url
-        # self.browser.implicitly_wait(timeout)  # Неявное ожидание со значением по умолчанию 10
 
     def open(self):
         """метод открывает нужную страницу,
